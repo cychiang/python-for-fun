@@ -28,7 +28,7 @@ func = {
 
 def data_generator(iterations):
     return [{
-        'ops': test_func_type[random.randint(0, 3)],
+        'ops': test_func_type[random.randint(0, 4)],
         'value_1': random.randint(1, 10),
         'value_2': random.randint(1, 10)
     } for idx in range(iterations)]
@@ -58,7 +58,8 @@ def if_elif_statement(data):
     elif data["ops"] == "div":
         ans = data["value_1"] / data["value_2"]
     else:
-        print("ops: {ops} not support".format(data["ops"]))
+        # print("ops: {ops} not support".format(ops=data["ops"]))
+        pass
 
     return ans
 
@@ -67,7 +68,8 @@ def try_except_dict_func_statement(data):
     try:
         ans = func[data['ops']](data)
     except KeyError:
-        print("ops: {ops} not support".format(data["ops"]))
+        # print("ops: {ops} not support".format(ops=data["ops"]))
+        pass
     return ans
 
 def if_else_dict_func_statement(data):
@@ -75,7 +77,8 @@ def if_else_dict_func_statement(data):
     if data['ops'] in support_func_type:
         ans = func[data['ops']](data)
     else:
-        print("ops: {ops} not support".format(data["ops"]))
+        # print("ops: {ops} not support".format(ops=data["ops"]))
+        pass
     return ans
 
 @evaluate_time
@@ -122,4 +125,4 @@ if __name__ == "__main__":
     # code analysis with disassembler
     test_case = data_generator(50000)
     process(test_case)
-
+    
