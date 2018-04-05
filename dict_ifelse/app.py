@@ -5,12 +5,11 @@ from time import time
 def evaluate_time(function):
     def warp(*arg):
         start = time()
-        result = function(*arg)
+        function(*arg)
         end = time()
         print('{}: {} ms'.format(
             function.__name__, (end - start) * 1000
         ))
-        return result
     return warp
 
 test_func_type = [
